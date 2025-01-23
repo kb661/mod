@@ -9152,28 +9152,6 @@
         imdb: true,
         disabled: disable_dbg && !androidHeaders
       }, {
-        name: 'lumex2',
-        title: 'Lumex (Ads)',
-        source: new lumex2(this, object),
-        search: false,
-        kp: false,
-        imdb: true
-      }, {
-        name: 'rezka',
-        title: 'Voidboost',
-        source: new rezka(this, object),
-        search: false,
-        kp: true,
-        imdb: true,
-        disabled: true
-      }, {
-        name: 'rezka2',
-        title: 'HDrezka',
-        source: new rezka2(this, object),
-        search: true,
-        kp: false,
-        imdb: false
-      }, {
         name: 'kinobase',
         title: 'Kinobase',
         source: new kinobase(this, object),
@@ -11673,44 +11651,6 @@
           Lampa.Storage.set('online_mod_last_balanser', {});
           Lampa.Storage.set('online_mod_balanser', '');
           $('.settings-param__status', clear_last_balanser).removeClass('active error wait').addClass('active');
-        });
-        var rezka2_login = e.body.find('[data-name="online_mod_rezka2_login"]');
-        rezka2_login.unbind('hover:enter').on('hover:enter', function () {
-          var rezka2_login_status = $('.settings-param__status', rezka2_login).removeClass('active error wait').addClass('wait');
-          rezka2Login(function () {
-            rezka2_login_status.removeClass('active error wait').addClass('active');
-          }, function () {
-            rezka2_login_status.removeClass('active error wait').addClass('error');
-          });
-        });
-        var rezka2_logout = e.body.find('[data-name="online_mod_rezka2_logout"]');
-        rezka2_logout.unbind('hover:enter').on('hover:enter', function () {
-          var rezka2_logout_status = $('.settings-param__status', rezka2_logout).removeClass('active error wait').addClass('wait');
-          rezka2Logout(function () {
-            rezka2_logout_status.removeClass('active error wait').addClass('active');
-          }, function () {
-            rezka2_logout_status.removeClass('active error wait').addClass('error');
-          });
-        });
-        var rezka2_fill_cookie = e.body.find('[data-name="online_mod_rezka2_fill_cookie"]');
-        rezka2_fill_cookie.unbind('hover:enter').on('hover:enter', function () {
-          var rezka2_fill_cookie_status = $('.settings-param__status', rezka2_fill_cookie).removeClass('active error wait').addClass('wait');
-          rezka2FillCookie(function () {
-            rezka2_fill_cookie_status.removeClass('active error wait').addClass('active');
-            Lampa.Params.update(e.body.find('[data-name="online_mod_rezka2_cookie"]'), [], e.body);
-          }, function () {
-            rezka2_fill_cookie_status.removeClass('active error wait').addClass('error');
-          });
-        });
-        var fancdn_fill_cookie = e.body.find('[data-name="online_mod_fancdn_fill_cookie"]');
-        fancdn_fill_cookie.unbind('hover:enter').on('hover:enter', function () {
-          var fancdn_fill_cookie_status = $('.settings-param__status', fancdn_fill_cookie).removeClass('active error wait').addClass('wait');
-          fancdnFillCookie(function () {
-            fancdn_fill_cookie_status.removeClass('active error wait').addClass('active');
-            Lampa.Params.update(e.body.find('[data-name="online_mod_fancdn_cookie"]'), [], e.body);
-          }, function () {
-            fancdn_fill_cookie_status.removeClass('active error wait').addClass('error');
-          });
         });
       }
     });
