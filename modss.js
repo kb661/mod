@@ -1,3 +1,4 @@
+@@ -0,0 +1,240 @@
 Date.now || (Date.now = function() {
     return (new Date.getTime())
 }
@@ -199,10 +200,8 @@ function(t) {
         }) : void 0
     }
 }(jQuery);
-
 (function() {
     'use strict';
-
     var Protocol = function Protocol() {
         return window.location.protocol == 'https:' ? 'https://' : 'http://';
     }
@@ -210,7 +209,6 @@ function(t) {
     var version_modss = '3.1', API = Protocol() + 'api.lampa.stream/', type = '', jackets = {}, cards, ping_auth, manifest, menu_list = [], vip = true, leftVipD = '', user_id = '', uid = '60efb6412cd5083cf154c58d0', IP, logged = false, cashe = encodeURIComponent(Lampa.Base64.encode(window.location.origin));
     console.log('Modss', 'init', 'loaded');
     console.log('App', 'origin', window.location.origin);
-
     var network = new Lampa.Reguest();
     network.silent(API.replace('api.', '') + 'modss', function(json) {
         try {
