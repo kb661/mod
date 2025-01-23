@@ -1774,44 +1774,7 @@
         }
   })
 
-  var botElement = $('<div class="myBot" style="line-height: 0.5;color: #ffffff;font-family: &quot;SegoeUI&quot;, sans-serif;font-size: 1em;box-sizing: border-box;outline: none;user-select: none;display: flex;-webkit-box-align: start;align-items: flex-start;position: relative;background-color: rgba(255, 255, 255, 0.1);border-radius: 0.3em;margin: 1.5em 2em;">' +
-          '<div class="ad-server__text">' +
-          'Тормозит видео? Нет источников в 4К и 1080? Попробуй подписку SHOWY PRO! Зайди в бот и получи доступ к Filmix 4K, Zetflix и ShowyTOR на высокой скорости!' +
-          '</div><div class="ad-server__label">' +
-          '@showybot' +
-          '</div><img src="http://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://t.me/showybot?start=pro" class="ad-server__qr"></div>')
-
-   var botElement2 = $('<div class="myBot2" style="line-height: 1;color: #ffffff;font-family: &quot;SegoeUI&quot;, sans-serif;font-size: 1em;box-sizing: border-box;outline: none;user-select: none;display: flex;-webkit-box-align: start;align-items: center;position: relative;background-color: rgba(255, 255, 255, 0.1);border-radius: 0.3em;margin-top: 1.5em;flex-direction: row-reverse;flex-wrap: nowrap;">' +
-          '<div class="ad-server__text">' +
-          'Тормозит видео? Нет источников в 4К и 1080? Попробуй подписку SHOWY PRO! Зайди в бот и получи доступ к Filmix 4K, Zetflix и ShowyTOR на высокой скорости!' +
-          '</div><img src="http://showy.online/qrcode.png" class="ad-server__qr"></div>')
-
-    Lampa.Storage.listener.follow('change', function (event) {
-              if (event.name == 'activity') {
-                if (Lampa.Activity.active().component == 'showy') {
-                   var add_ads = setInterval(function() {
-			if (document.querySelector('.online-prestige-watched') !== null) {
-	                    $('.online-prestige-watched').after(botElement);
-                            clearInterval(add_ads);
-                        }
-                   }, 50);
-                }
-                if (Lampa.Activity.active().component == 'full') {
-                   var add_ads2 = setInterval(function() {
-                    
-                    var titleText = $('.selectbox__title').text(); // Создаем переменную для текста
-                    
-                    if (titleText.length && titleText === 'Источник' && Lampa.Activity.active().component === 'full') { // Проверяем длину переменной и ее значение
-                      //  $('.selectbox__title').after(botElement2); // Вставляем элемент после заголовка
-                       
-                    } else {
-                        
-                        $('.myBot2').remove();
-                    }
-                   }, 250);
-                }
-              }
-         })  
+  
 
   if (!window.showy_plugin) startPlugin();
 })();
