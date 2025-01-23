@@ -7698,14 +7698,13 @@
     console.log('App', 'supports headers:', androidHeaders);
 
     if (!Utils.isDebug()) {
-      Lampa.Storage.set('online_mod_proxy_rezka2', 'false');
       Lampa.Storage.set('online_mod_proxy_kinobase', 'false');
       Lampa.Storage.set('online_mod_proxy_collaps', 'false');
       Lampa.Storage.set('online_mod_proxy_cdnmovies', 'false');
       Lampa.Storage.set('online_mod_proxy_fancdn', 'false');
       Lampa.Storage.set('online_mod_proxy_fanserials', 'false');
       Lampa.Storage.set('online_mod_proxy_redheadsound', 'false');
-      Lampa.Storage.set('online_mod_proxy_animelib', 'false');
+      
     }
 
     Lampa.Storage.set('online_mod_proxy_filmix', Lampa.Platform.is('android') ? 'false' : 'true');
@@ -7742,7 +7741,6 @@
     Lampa.Params.trigger('online_mod_convert_vtt_to_srt', false);
     Lampa.Params.trigger('online_mod_av1_support', true);
     Lampa.Params.trigger('online_mod_save_last_balanser', false);
-    Lampa.Params.trigger('online_mod_rezka2_fix_stream', false);
     Lampa.Params.select('online_mod_kinobase_mirror', '', '');
     Lampa.Params.select('online_mod_kinobase_cookie', '', '');
     Lampa.Params.select('online_mod_fancdn_name', '', '');
