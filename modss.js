@@ -12915,16 +12915,27 @@
     };
     Lampa.Manifest.plugins = manifest;
     var button = "<div class=\"full-start__button selector view--online_mod\" data-subtitle=\"online_mod " + mod_version + "\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 244 260\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n    <g xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M242,88v170H10V88h41l-38,38h37.1l38-38h38.4l-38,38h38.4l38-38h38.3l-38,38H204L242,88L242,88z M228.9,2l8,37.7l0,0 L191.2,10L228.9,2z M160.6,56l-45.8-29.7l38-8.1l45.8,29.7L160.6,56z M84.5,72.1L38.8,42.4l38-8.1l45.8,29.7L84.5,72.1z M10,88 L2,50.2L47.8,80L10,88z\" fill=\"currentColor\"/>\n    </g></svg>\n\n    <span>#{online_mod_title}</span>\n    </div>";
-    Lampa.Listener.follow('full', function (e) {
-      if (e.type == 'complite') {
-        var btn = $(Lampa.Lang.translate(button));
-        online_loading = false;
-        btn.on('hover:enter', function () {
-          loadOnline(e.data.movie);
+	    Lampa.Component.add('online_mod', component);
+    resetTemplates();
+    function addButton(e) {
+      if (e.render.find('.showy--button').length) return;
+      var btn = $(Lampa.Lang.translate(button));
+      btn.on('hover:enter', function() {
+        resetTemplates();
+        Lampa.Component.add('online_mod', component);
+        Lampa.Activity.push({
+          url: '',
+          title: Lampa.Lang.translate('online_mod_title_full'),
+          component: 'online_mod',
+          search: e.movie.title,
+          search_one: e.movie.title,
+          search_two: e.movie.original_title,
+          movie: e.movie,
+          page: 1
         });
-        e.object.activity.render().find('.view--torrent').after(btn);
-      }
-    });
+      });
+      e.render.before(btn);
+    }
 
     if (Lampa.Storage.get('online_mod_use_stream_proxy', '') === '') {
       $.ajax({
