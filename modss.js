@@ -1,5 +1,3 @@
-//22.01.2025 - Fix
-
 (function () {
     'use strict';
 
