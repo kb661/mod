@@ -3,32 +3,34 @@
 
   var Defined = {
     api: 'lampac',
-    localhost: 'http://showy.online/',
-    apn: ''
+    localhost: 'https://default.rc.bwa.to/',
+    apn: 'https://apn.watch/',
+	rchtype: undefined
   };
-
-  var rchtype = 'web';
-  var check = function check(good) {
-	rchtype = Lampa.Platform.is('android') ? 'apk' : good ? 'cors' : 'web';
-  }
 
   var unic_id = Lampa.Storage.get('lampac_unic_id', '');
   if (!unic_id) {
 	unic_id = Lampa.Utils.uid(8).toLowerCase();
 	Lampa.Storage.set('lampac_unic_id', unic_id);
   }
+  
+  if (Defined.rchtype === undefined) {
+    Defined.rchtype = 'web';
+    var check = function check(good) {
+      Defined.rchtype = Lampa.Platform.is('android') ? 'apk' : good ? 'cors' : 'web';
+    }
 
-  if (Lampa.Platform.is('android') || Lampa.Platform.is('tizen')) check(true);
-  else
-  {
-	var net = new Lampa.Reguest();
-	net.silent('https://github.com/', function() {
-	  check(true);
-	}, function() {
-	  check(false);
-	}, false, {
-	  dataType: 'text'
-	});
+    if (Lampa.Platform.is('android') || Lampa.Platform.is('tizen')) check(true);
+    else {
+      var net = new Lampa.Reguest();
+      net.silent('https://default.rc.bwa.to'.indexOf(location.host) >= 0 ? 'https://github.com/' : 'https://default.rc.bwa.to/cors/check', function() {
+        check(true);
+      }, function() {
+        check(false);
+      }, false, {
+        dataType: 'text'
+      });
+    }
   }
 
   function BlazorNet() {
@@ -60,7 +62,7 @@
       this.net.clear();
     };
   }
-
+  
   var Network = Lampa.Reguest;
   //var Network = Defined.api.indexOf('pwa') == 0 && typeof Blazor !== 'undefined' ? BlazorNet : Lampa.Reguest;
 
@@ -95,8 +97,8 @@
       season: [],
       voice: []
     };
-    var balansers_with_search = ['eneyida', 'seasonvar', 'lostfilmhd', 'kinotochka', 'kinopub', 'kinoprofi', 'kinokrad', 'kinobase', 'filmix', 'filmixtv', 'redheadsound', 'animevost', 'animego', 'animedia', 'animebesst', 'anilibria', 'rezka', 'rhsprem', 'kodik', 'remux', 'animelib', 'kinoukr'];
-
+    var balansers_with_search = ['kinotochka', 'kinopub', 'lumex', 'filmix', 'filmixtv', 'redheadsound', 'animevost', 'animego', 'animedia', 'animebesst', 'anilibria', 'rezka', 'rhsprem', 'kodik', 'remux', 'animelib', 'kinoukr', 'rc/filmix', 'rc/fxapi', 'rc/kinopub', 'rc/rhs', 'vcdn'];
+	
     function account(url) {
       url = url + '';
       if (url.indexOf('account_email=') == -1) {
@@ -111,189 +113,47 @@
         var token = '';
         if (token != '') url = Lampa.Utils.addUrlComponent(url, 'token=');
       }
-      url = Lampa.Utils.addUrlComponent(url, 'showy_token=' + Lampa.Storage.get('showy_token'));
       return url;
     }
 
-  var isCodeObtained = true;
-  var checkInterval = 3000;
-
-  var intervalId = setInterval(function() {
-    var urlParams = window.location.search;
-    var cardExists = (urlParams.indexOf('card=') !== -1);
-    if (cardExists) {
-        var element = document.querySelector('.online-empty__time');
-        var modalExists = document.querySelector('.modal__content');
-        var playerVideoExists = document.querySelector('.player-video');
-
-        if (!playerVideoExists && element && !modalExists) {
-            if (element.innerText === 'Не авторизован') {
-                isCodeObtained = false;
-                showModal();
-            }
-        }
-    }
-  }, checkInterval);
-
-
-      var maxCodeAttempts = 100;
-      var codeAttempts = 0;
-
-      function updateModalContent(randomCode) {
-          document.getElementById("randomCodeDisplay").innerText = randomCode;
-          document.getElementById("qrCodeImage").src = "http://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://t.me/showybot?start=" + randomCode;
-      }
-
-      function checkCode() {
-          if (isCodeObtained) return;
-
-          var randomCode = document.getElementById('randomCodeDisplay').innerText;
-
-          $.ajax({
-              url: 'http://showy.online/api/check_code/',
-              method: 'POST',
-              contentType: 'application/json',
-              data: JSON.stringify({ code: randomCode }),
-              success: function(response) {
-                if (response.status === 'success') {
-                  Lampa.Storage.set('showy_token', response.token);
-                  window.location.reload();
-                }
-              },
-              error: function(xhr) {
-                  if (xhr.status === 400) {
-                      showModal();
-                  }
-              }
-          });
-      }
-
-
-      function deleteDeviceToken() {
-          $.ajax({
-              url: 'http://showy.online/api/delete_token/',
-              method: 'POST',
-              contentType: 'application/json',
-              data: JSON.stringify({
-                  token: Lampa.Storage.get('showy_token')
-              }),
-              success: function(response) {
-                  console.log('Token deleted successfully');
-              },
-              error: function(xhr) {
-                  console.error('Error deleting token:', xhr);
-              }
-          });
-          Lampa.Storage.set('showy_token', '');
-          window.location.href = '/';
-  }
-
-    function showModal() {
-        function getRandomCode() {
-            if (codeAttempts >= maxCodeAttempts) {
-                isCodeObtained = true;
-                $('.modal').remove();
-                Lampa.Controller.toggle('content');
-                return;
-            }
-
-            codeAttempts++;
-
-            return $.ajax({
-                url: 'http://showy.online/api/get_code/',
-                method: 'POST',
-                dataType: 'json',
-                success: function(data) {
-                    var randomCode = data.code;
-                    Lampa.Storage.set('random_code', randomCode);
-                    updateModalContent(randomCode);
-                },
-                error: function(jqXHR) {
-                    setTimeout(getRandomCode, 1000);
-                }
-            });
-        }
-
-        getRandomCode();
-
-        var modalHtml = '<div>' +
-                            '<img id="qrCodeImage"/>' +
-                            '<p>Для просмотра через онлайн плагин Showy требуется авторизация, пожалуйста отсканируйте QR или введите код в телеграм-боте @showybot или по ссылке t.me/showybot</p>' +
-                            '<p><strong id="randomCodeDisplay"></strong></p>' +
-                            '<p id="notification" style="display: none; background-color: #4caf50; color: white; padding: 10px; border-radius: 5px; margin-top: 10px;"></p>' +
-                        '</div>';
-
-        if ($('.modal').length) {
-            $('.modal').remove();
-        }
-
-        Lampa.Modal.open({
-            title: '',
-            align: 'center',
-            zIndex: 300,
-            html: $(modalHtml),
-            onBack: function() {
-                window.location.href = '/';
-            }
-        });
-
-        checkCodeInterval();
-    }
-
-    function checkCodeInterval() {
-        if (codeAttempts >= maxCodeAttempts) {
-            window.location.href = '/';
-            return;
-        }
-
-        checkCode();
-
-        codeAttempts++;
-
-        setTimeout(function() {
-            if (!isCodeObtained) {
-                checkCodeInterval();
-            }
-        }, 3000); // Проверка каждые 3 секунды
-    }
     function balanserName(j) {
       var bals = j.balanser;
       var name = j.name.split(' ')[0];
       return (bals || name).toLowerCase();
     }
-
+	
 	function clarificationSearchAdd(value){
 		var id = Lampa.Utils.hash(object.movie.number_of_seasons ? object.movie.original_name : object.movie.original_title)
 		var all = Lampa.Storage.get('clarification_search','{}')
-
+		
 		all[id] = value
-
+		
 		Lampa.Storage.set('clarification_search',all)
 	}
-
+	
 	function clarificationSearchDelete(){
 		var id = Lampa.Utils.hash(object.movie.number_of_seasons ? object.movie.original_name : object.movie.original_title)
 		var all = Lampa.Storage.get('clarification_search','{}')
-
+		
 		delete all[id]
-
+		
 		Lampa.Storage.set('clarification_search',all)
 	}
-
+	
 	function clarificationSearchGet(){
 		var id = Lampa.Utils.hash(object.movie.number_of_seasons ? object.movie.original_name : object.movie.original_title)
 		var all = Lampa.Storage.get('clarification_search','{}')
-
+		
 		return all[id]
 	}
-
+	
     this.initialize = function() {
       var _this = this;
       this.loading(true);
       filter.onSearch = function(value) {
-
+		  
 		clarificationSearchAdd(value)
-
+		
         Lampa.Activity.replace({
           search: value,
           clarification: true
@@ -310,7 +170,7 @@
         if (type == 'filter') {
           if (a.reset) {
 			  clarificationSearchDelete()
-
+			  
             _this.replaceChoice({
               season: 0,
               voice: 0,
@@ -368,12 +228,15 @@
       var _this2 = this;
       var load = function load() {
         if (hubConnection) {
+          clearTimeout(hub_timer);
           hubConnection.stop();
           hubConnection = null;
+		  console.log('RCH', 'hubConnection stop');
         }
         hubConnection = new signalR.HubConnectionBuilder().withUrl(json.ws).build();
         hubConnection.on("RchClient", function(rchId, url, data, headers, returnHeaders) {
 
+          console.log('RCH', url);
           function result(html) {
             if (Lampa.Arrays.isObject(html) || Lampa.Arrays.isArray(html)) html = JSON.stringify(html);
             network.silent(json.result, false, false, {
@@ -384,11 +247,12 @@
               timeout: 1000 * 5
             });
           }
-
+		  
 		  if (url == 'eval')
 			result(eval(data))
 		  else {
 			network["native"](url, result, function() {
+              console.log('RCH', 'result empty');
               result('');
 			}, data, {
               dataType: 'text',
@@ -399,19 +263,24 @@
 		  }
         });
         hubConnection.start().then(function() {
-          hubConnection.invoke("RchRegistry", JSON.stringify({version:137, host:location.host, rchtype: rchtype})).then(function() {
+          hubConnection.invoke("RchRegistry", JSON.stringify({version:138, host:location.host, rchtype:Defined.rchtype})).then(function() {
+            console.log('RCH', 'hubConnection start');
             if(!noreset) _this2.find();
 			else noreset()
           });
         })["catch"](function(err) {
+          console.log('RCH', err.toString());
           return console.error(err.toString());
         });
-        hub_timer = setTimeout(function() {
-          hubConnection.stop();
-        }, 1000 * json.keepalive);
+		if (json.keepalive > 0) {
+          hub_timer = setTimeout(function() {
+            hubConnection.stop();
+			hubConnection = null;
+          }, 1000 * json.keepalive);
+		}
       };
       if (typeof signalR == 'undefined') {
-        Lampa.Utils.putScript(["http://89.110.72.185:9118/signalr-6.0.25_es5.js"], function() {}, false, function() {
+        Lampa.Utils.putScript(["https://default.rc.bwa.to/signalr-6.0.25_es5.js"], function() {}, false, function() {
           load();
         }, true);
       } else load();
@@ -463,7 +332,7 @@
       query.push('original_language=' + (object.movie.original_language || ''));
       query.push('year=' + ((object.movie.release_date || object.movie.first_air_date || '0000') + '').slice(0, 4));
       query.push('source=' + card_source);
-	  query.push('rchtype=' + rchtype);
+	  query.push('rchtype=' + Defined.rchtype);
       query.push('clarification=' + (object.clarification ? 1 : 0));
       if (Lampa.Storage.get('account_email', '')) query.push('cub_id=' + Lampa.Utils.hash(Lampa.Storage.get('account_email', '')));
       return url + (url.indexOf('?') >= 0 ? '&' : '?') + query.join('&');
@@ -654,7 +523,7 @@
     };
     this.getFileUrl = function(file, call) {
 	  var _this = this;
-
+	  
       if(Lampa.Storage.field('player') !== 'inner' && file.stream && Lampa.Platform.is('apple')){
 		  var newfile = Lampa.Arrays.clone(file)
 		  newfile.method = 'play'
@@ -672,7 +541,7 @@
 			if(json.rch){
 				_this.rch(json,function(){
 					Lampa.Loading.stop();
-
+					
 					_this.getFileUrl(file, call)
 				})
 			}
@@ -720,6 +589,7 @@
               var playlist = [];
               var first = _this5.toPlayElement(item);
               first.url = json.url;
+			  first.headers = json.headers;
               first.quality = json_call.quality || item.qualitys;
               first.subtitles = json.subtitles;
 			  first.vast_url = json.vast_url;
@@ -763,7 +633,7 @@
                   _this5.appendAPN(cell);
                   _this5.setDefaultQuality(cell);
                   playlist.push(cell);
-                }); //Lampa.Player.playlist(playlist)
+                }); //Lampa.Player.playlist(playlist) 
               } else {
                 playlist.push(first);
               }
@@ -1472,8 +1342,8 @@
       var html = Lampa.Template.get('lampac_does_not_answer', {
         balanser: balanser
       });
-      if(er && er.accsdb) html.find('.online-empty__title').text(er.msg)
-
+      if(er && er.accsdb) html.find('.online-empty__title').html(er.msg)
+	  
       var tic = er && er.accsdb ? 10 : 5;
       html.find('.cancel').on('hover:enter', function() {
         clearInterval(balanser_timer);
