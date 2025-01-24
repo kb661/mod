@@ -4515,7 +4515,7 @@
       }
 
       var token = Lampa.Storage.get('filmix_token', '') + '';
-      var dev_token = 'user_dev_apk=2.0.1&user_dev_id=&user_dev_name=Xiaomi&user_dev_os=11&user_dev_token='+token+'&user_dev_vendor=Xiaomi';
+      var dev_token = '?user_dev_apk=2.0.9&user_dev_id=' + Lampa.Utils.uid(16) + '&user_dev_name=Xiaomi&user_dev_os=12&user_dev_token=aaaabbbbccccddddeeeeffffaaaabbbb&user_dev_vendor=Xiaomi';
       var abuse_token = prox3 ? Utils.filmixToken(Utils.randomHex(16), '') : '';
       /**
        * Начать поиск
