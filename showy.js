@@ -97,7 +97,7 @@
       season: [],
       voice: []
     };
-    var balansers_with_search = ['kinotochka', 'kinopub', 'lumex', 'filmix', 'filmixtv', 'redheadsound', 'animevost', 'animego', 'animedia', 'animebesst', 'anilibria', 'rezka', 'rhsprem', 'kodik', 'remux', 'animelib', 'kinoukr', 'rc/filmix', 'rc/fxapi', 'rc/kinopub', 'rc/rhs', 'vcdn', 'fancdn', 'fanserial'];
+    var balansers_with_search = ['kinotochka', 'lumex', 'filmix', 'filmixtv', 'redheadsound','rhsprem', 'remux', 'rc/filmix', 'rc/fxapi', 'rc/rhs', 'vcdn'];
 	
     function account(url) {
       url = url + '';
@@ -1628,7 +1628,7 @@
             }
         } catch (e) {}
     if (Lampa.Manifest.app_digital >= 177) {
-      var balansers_sync = ["filmix", "fxapi", "kinobase", "rezka", "voidboost", "videocdn", "videodb", "collaps", "hdvb", "zetflix", "kodik", "ashdi", "eneyida", "kinoukr", "kinokrad", "kinotochka", "kinoprofi", "remux", "iframevideo", "cdnmovies", "anilibria", "animedia", "animego", "animevost", "animebesst", "redheadsound", "alloha", "seasonvar", "kinopub", "vokino",'fancdn', 'fanserial'];
+      var balansers_sync = ["filmix", "fxapi", "voidboost", "videocdn", "videodb", "collaps", "hdvb", "zetflix", "kinotochka", "kinoprofi", "remux", "iframevideo", "cdnmovies", "redheadsound", "alloha", "seasonvar"];
       balansers_sync.forEach(function(name) {
         Lampa.Storage.sync('online_choice_' + name, 'object_object');
       });
