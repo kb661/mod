@@ -11078,14 +11078,6 @@
         imdb: true,
         disabled: disable_dbg && !androidHeaders
       }, {
-        name: 'kinobase',
-        title: 'Kinobase',
-        source: new kinobase(this, object),
-        search: true,
-        kp: false,
-        imdb: false,
-        disabled: disable_dbg
-      }, {
         name: 'collaps',
         title: 'Collaps',
         source: new collaps(this, object, false),
@@ -11117,14 +11109,6 @@
         kp: false,
         imdb: false
       }, {
-        name: 'zetflix',
-        title: 'Zetflix',
-        source: new zetflix(this, object),
-        search: false,
-        kp: true,
-        imdb: false,
-        disabled: disable_dbg && !isAndroid
-      }, {
         name: 'fancdn2',
         title: 'FanCDN (ID)',
         source: new fancdn2(this, object),
@@ -11154,14 +11138,6 @@
         search: false,
         kp: true,
         imdb: false
-      }, {
-        name: 'alloha',
-        title: 'Alloha',
-        source: new alloha(this, object),
-        search: false,
-        kp: true,
-        imdb: true,
-        disabled: disable_dbg && !isAndroid
       }];
       var obj_filter_sources = all_sources.filter(function (s) {
         return !s.disabled;
@@ -12927,11 +12903,6 @@ Lampa.Template.add('lampac_css', "\n        <style>\n        @charset 'UTF-8';.o
         });
         e.object.activity.render().find('.view--torrent').after(btn);
       }
-	    {
-            setTimeout(function(){
-                $(".view--online_showy", Lampa.Activity.active().activity.render()).empty().append('<svg width="512" height="512" viewBox="0 0 512 512" style="color:currentColor" xmlns="http://www.w3.org/2000/svg" class="h-full w-full"><rect width="512" height="512" x="0" y="0" rx="30" fill="transparent" stroke="transparent" stroke-width="0" stroke-opacity="100%" paint-order="stroke"></rect><svg width="512px" height="512px" viewBox="0 0 16 16" fill="currentColor" x="0" y="0" role="img" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><g fill="currentColor"><path d="M3.577 8.9v.03h1.828V5.898h-.062a46.781 46.781 0 0 0-1.766 3.001z"/><path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm2.372 3.715l.435-.714h1.71v3.93h.733v.957h-.733V11H5.405V9.888H2.5v-.971c.574-1.077 1.225-2.142 1.872-3.202zm7.73-.714h1.306l-2.14 2.584L13.5 11h-1.428l-1.679-2.624l-.615.7V11H8.59V5.001h1.187v2.686h.057L12.102 5z"/></g></g></svg></svg>&nbsp&nbspShowy');
-            }, 5);
-        }
     });
 	
 
