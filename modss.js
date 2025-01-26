@@ -11123,7 +11123,7 @@
         search: false,
         kp: true,
         imdb: false,
-        disabled: disable_dbg
+        disabled: disable_dbg && !isAndroid
       }, {
         name: 'fancdn2',
         title: 'FanCDN (ID)',
@@ -11161,7 +11161,7 @@
         search: false,
         kp: true,
         imdb: true,
-        disabled: disable_dbg
+        disabled: disable_dbg && !isAndroid
       }];
       var obj_filter_sources = all_sources.filter(function (s) {
         return !s.disabled;
