@@ -11084,7 +11084,7 @@
         search: true,
         kp: false,
         imdb: false,
-        disabled: disable_dbg && !androidHeaders
+        disabled: disable_dbg && !isAndroid
       }, {
         name: 'collaps',
         title: 'Collaps',
@@ -11108,7 +11108,7 @@
         search: false,
         kp: true,
         imdb: true,
-        disabled: disable_dbg
+        disabled: disable_dbg && !isAndroid
       }, {
         name: 'filmix',
         title: 'Filmix',
@@ -11161,7 +11161,7 @@
         search: false,
         kp: true,
         imdb: true,
-        disabled: disable_dbg && !isAndroid
+        disabled: disable_dbg && !androidHeaders
       }];
       var obj_filter_sources = all_sources.filter(function (s) {
         return !s.disabled;
