@@ -11069,14 +11069,14 @@
         kp: false,
         imdb: true,
         disabled: disable_dbg && !androidHeaders
-      }, {
+      }, /*{
         name: 'lumex2',
         title: 'Lumex (Ads)',
         source: new lumex2(this, object),
         search: false,
         kp: false,
         imdb: true
-      }, /*{
+      }, {
         name: 'rezka',
         title: 'Voidboost',
         source: new rezka(this, object),
@@ -11138,7 +11138,7 @@
         kp: true,
         imdb: false,
         disabled: disable_dbg
-      }, {
+      },/* {
         name: 'fancdn',
         title: 'FanCDN',
         source: new fancdn(this, object),
@@ -11146,7 +11146,7 @@
         kp: false,
         imdb: false,
         disabled: disable_dbg && !isAndroid
-      }, {
+      }, */{
         name: 'fancdn2',
         title: 'FanCDN (ID)',
         source: new fancdn2(this, object),
