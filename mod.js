@@ -11681,7 +11681,7 @@
 
             sources[balanser].search(object);
           } else {
-            if (balanser == 'lumex' || balanser == 'lumex2') {
+            if (balanser == 'lumex' || balanser == 'lumex') {
               var fallback = function fallback() {
                 if (!object.clarification && (+object.movie.kinopoisk_id || object.movie.imdb_id)) {
                   _this4.extendChoice();
