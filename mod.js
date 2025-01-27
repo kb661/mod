@@ -11248,7 +11248,7 @@
         search: false,
         kp: false,
         imdb: true
-      }, {
+      }, /*{
         name: 'rezka',
         title: 'Voidboost',
         source: new rezka(this, object),
@@ -11271,7 +11271,7 @@
         kp: false,
         imdb: false,
         disabled: disable_dbg
-      }, {
+      }, */{
         name: 'collaps',
         title: 'Collaps',
         source: new collaps(this, object, false),
@@ -11348,7 +11348,7 @@
         search: false,
         kp: true,
         imdb: false
-      }, {
+      }/*, {
         name: 'anilibria',
         title: 'AniLibria',
         source: new anilibria(this, object),
@@ -11393,7 +11393,7 @@
         kp: false,
         imdb: true,
         disabled: true
-      }];
+      }*/];
       var obj_filter_sources = all_sources.filter(function (s) {
         return !s.disabled;
       });
@@ -13289,7 +13289,7 @@ Lampa.Template.add('online_mod_css', "\n        <style>\n        @charset 'UTF-8
       Lampa.Listener.follow('full', function(e) {
         if (e.type == 'complite') {
             setTimeout(function(){
-                $(".view--online_mod", Lampa.Activity.active().activity.render()).empty().append('<svg width="512" height="512" viewBox="0 0 512 512" style="color:currentColor" xmlns="http://www.w3.org/2000/svg" class="h-full w-full"><rect width="512" height="512" x="0" y="0" rx="30" fill="transparent" stroke="transparent" stroke-width="0" stroke-opacity="100%" paint-order="stroke"></rect><svg width="512px" height="512px" viewBox="0 0 16 16" fill="currentColor" x="0" y="0" role="img" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><g fill="currentColor"><path d=\"M242,88v170H10V88h41l-38,38h37.1l38-38h38.4l-38,38h38.4l38-38h38.3l-38,38H204L242,88L242,88z M228.9,2l8,37.7l0,0 L191.2,10L228.9,2z M160.6,56l-45.8-29.7l38-8.1l45.8,29.7L160.6,56z M84.5,72.1L38.8,42.4l38-8.1l45.8,29.7L84.5,72.1z M10,88 L2,50.2L47.8,80L10,88z\"/></g></g></svg></svg>&nbsp&nbspOnline');
+                $(".view--online_mod", Lampa.Activity.active().activity.render()).empty().append('<svg width="512" height="512" viewBox="0 0 512 512" style="color:currentColor" xmlns="http://www.w3.org/2000/svg" class="h-full w-full"><rect width="512" height="512" x="0" y="0" rx="30" fill="transparent" stroke="transparent" stroke-width="0" stroke-opacity="100%" paint-order="stroke"></rect><svg width="512px" height="512px" viewBox="0 0 16 16" fill="currentColor" x="0" y="0" role="img" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><g fill="currentColor"><path d="M3.577 8.9v.03h1.828V5.898h-.062a46.781 46.781 0 0 0-1.766 3.001z"/><path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm2.372 3.715l.435-.714h1.71v3.93h.733v.957h-.733V11H5.405V9.888H2.5v-.971c.574-1.077 1.225-2.142 1.872-3.202zm7.73-.714h1.306l-2.14 2.584L13.5 11h-1.428l-1.679-2.624l-.615.7V11H8.59V5.001h1.187v2.686h.057L12.102 5z"/></g></g></svg></svg>&nbsp&nbspONLINE');
             }, 5);
         }
   });
