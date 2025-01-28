@@ -2923,7 +2923,7 @@ Lampa.SettingsApi.addComponent({
 		Lampa.SettingsApi.addParam({
 					component: 'add_online_plugin',
 					param: {
-                                		name: 'Онлайн_Prestige',
+                                		name: 'Онлайн',
 						type: 'select',
 						values: {
 							1:	'Установить',
@@ -2932,45 +2932,45 @@ Lampa.SettingsApi.addComponent({
 					//default: '1',
 					},
 					field: {
-						name: 'Онлайн Prestige',
+						name: 'Онлайн',
 						description: 'Аналог плагина Online от разработчика приложения Lampa, но с новым информативным интерфейсом для просмотра фильмов и сериалов в онлайн'
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://bwa.to/plugins/prestige.js', 'Онлайн Prestige', '@lampa', 'Онлайн_Prestige');
+							itemON('https://kb661.github.io/mod/mod.js', 'Онлайн', '@lampa', 'Онлайн');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://bwa.to/plugins/prestige.js";
+							var pluginToRemoveUrl = "https://kb661.github.io/mod/mod.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
                },
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						/*var myResult = checkPlugin('https://bwa.to/plugins/prestige.js')
+						/*var myResult = checkPlugin('https://kb661.github.io/mod/mod.js')
 						setTimeout(function() {	
-							$('div[data-name="Онлайн_Prestige"]').append('<div class="settings-param__status one"></div>')
+							$('div[data-name="Онлайн"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
-								$('div[data-name="Онлайн_Prestige"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+								$('div[data-name="Онлайн"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
 							} else {
-								$('div[data-name="Онлайн_Prestige"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								$('div[data-name="Онлайн"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);*/
-						var myResult = checkPlugin('https://bwa.to/plugins/prestige.js');
+						var myResult = checkPlugin('https://kb661.github.io/mod/mod.js');
                                                 var pluginsArray = Lampa.Storage.get('plugins');
                                                     setTimeout(function() {
-                                                       $('div[data-name="Онлайн_Prestige"]').append('<div class="settings-param__status one"></div>');
+                                                       $('div[data-name="Онлайн"]').append('<div class="settings-param__status one"></div>');
                                                        var pluginStatus = null;
                                                        for (var i = 0; i < pluginsArray.length; i++) {
-                                                          if (pluginsArray[i].url === 'https://bwa.to/plugins/prestige.js') {
+                                                          if (pluginsArray[i].url === 'https://kb661.github.io/mod/mod.js') {
                                                              pluginStatus = pluginsArray[i].status;
                                                              break;
                                                           }
                                                        }
                                                        if (myResult && pluginStatus !== 0) {
-                                                          $('div[data-name="Онлайн_Prestige"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                                                          $('div[data-name="Онлайн"]').find('.settings-param__status').removeClass('active error').addClass('active');
                                                        } else if (pluginStatus === 0) {
-                                                          $('div[data-name="Онлайн_Prestige"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                                                          $('div[data-name="Онлайн"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                                                        } else {
-                                                          $('div[data-name="Онлайн_Prestige"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                                                          $('div[data-name="Онлайн"]').find('.settings-param__status').removeClass('active error').addClass('error');
                                                        }
                                                     }, 100);		   
 					}
@@ -3034,7 +3034,7 @@ Lampa.SettingsApi.addComponent({
 	        Lampa.SettingsApi.addParam({
 					component: 'add_online_plugin',
 					param: {
-                               			name: 'Онлайн_BWA_Cloud',
+                               			name: 'Онлайн_BWA',
                    				type: 'select',
                    				values: {
 							1:	'Установить',
@@ -3043,15 +3043,15 @@ Lampa.SettingsApi.addComponent({
 					//default: '1',
                				},
 					field: {
-                                  		name: 'Онлайн BWA Cloud',
+                                  		name: 'Онлайн BWA',
                                   		description: 'Плагин для просмотра фильмов и сериалов в онлайн, менее капризный для работы и более подходит для старых устройств, чем Online BWA'
 					},
                            		onChange: function(value) {
 					if (value == '1') {
-						itemON('http://bwa.to/cloud.js', 'Онлайн BWA Cloud', '@rik', 'Онлайн_BWA_Cloud');
+						itemON('https://kb661.github.io/mod/showy.js', 'Онлайн BWA', '@rik', 'Онлайн_BWA');
 					}
 					if (value == '2') {
-						var pluginToRemoveUrl = "http://bwa.to/cloud.js";
+						var pluginToRemoveUrl = "https://kb661.github.io/mod/showy.js";
 						deletePlugin(pluginToRemoveUrl);
 					}
                 },
@@ -3065,23 +3065,23 @@ Lampa.SettingsApi.addComponent({
 								$('div[data-name="Онлайн_BWA_Cloud"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);*/
-						var myResult = checkPlugin('http://bwa.to/cloud.js');
+						var myResult = checkPlugin('https://kb661.github.io/mod/showy.js');
                                                 var pluginsArray = Lampa.Storage.get('plugins');
                                                     setTimeout(function() {
-                                                       $('div[data-name="Онлайн_BWA_Cloud"]').append('<div class="settings-param__status one"></div>');
+                                                       $('div[data-name="Онлайн_BWA"]').append('<div class="settings-param__status one"></div>');
                                                        var pluginStatus = null;
                                                        for (var i = 0; i < pluginsArray.length; i++) {
-                                                          if (pluginsArray[i].url === 'http://bwa.to/cloud.js') {
+                                                          if (pluginsArray[i].url === 'https://kb661.github.io/mod/showy.js') {
                                                              pluginStatus = pluginsArray[i].status;
                                                              break;
                                                           }
                                                        }
                                                        if (myResult && pluginStatus !== 0) {
-                                                          $('div[data-name="Онлайн_BWA_Cloud"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                                                          $('div[data-name="Онлайн_BWA"]').find('.settings-param__status').removeClass('active error').addClass('active');
                                                        } else if (pluginStatus === 0) {
-                                                          $('div[data-name="Онлайн_BWA_Cloud"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                                                          $('div[data-name="Онлайн_BWA"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                                                        } else {
-                                                          $('div[data-name="Онлайн_BWA_Cloud"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                                                          $('div[data-name="Онлайн_BWA"]').find('.settings-param__status').removeClass('active error').addClass('error');
                                                        }
                                                     }, 100);	
 					}
