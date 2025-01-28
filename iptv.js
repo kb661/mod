@@ -1365,10 +1365,10 @@ function langGet(name) {
 
 langAdd('default_playlist',
     {
-	ru: 'https://raw.githubusercontent.com/blackbirdstudiorus/LoganetXIPTV/main/LoganetXAll.m3u',
-	uk: 'https://raw.githubusercontent.com/blackbirdstudiorus/LoganetXIPTV/main/LoganetXAll.m3u',
-	be: 'https://raw.githubusercontent.com/blackbirdstudiorus/LoganetXIPTV/main/LoganetXAll.m3u',
-	en: 'https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8',
+	ru: 'http://f0892762.xsph.ru/list/edem_tv.txt',
+	uk: 'http://f0892762.xsph.ru/list/edem_tv.txt',
+	be: 'http://f0892762.xsph.ru/list/edem_tv.txt',
+	en: 'http://f0892762.xsph.ru/list/edem_tv.txt',
 	zh: 'https://raw.iqiq.io/Free-TV/IPTV/master/playlist.m3u8'
     }
 );
