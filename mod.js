@@ -11849,7 +11849,7 @@
         search: false,
         kp: false,
         imdb: true
-      },*/ {
+      }, {
         name: 'rezka',
         title: 'Voidboost',
         source: new rezka(this, object),
@@ -11857,14 +11857,14 @@
         kp: true,
         imdb: true,
        // disabled: true
-      },/* {
+      }, {
         name: 'rezka2',
         title: 'HDrezka',
         source: new rezka2(this, object),
         search: true,
         kp: false,
         imdb: false
-      },*/ {
+      }, {
         name: 'kinobase',
         title: 'Kinobase',
         source: new kinobase(this, object),
@@ -11872,7 +11872,7 @@
         kp: false,
         imdb: true,  //было false
        // disabled: disable_dbg
-      },/* {
+      }, {
         name: 'collaps',
         title: 'Collaps',
         source: new collaps(this, object, false),
