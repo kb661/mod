@@ -1,4 +1,4 @@
-//26.01.2025 - Fix
+//05.02.2025 - Fix
 
 (function () {
     'use strict';
@@ -11903,7 +11903,7 @@
         search: true,
         kp: false,
         imdb: false
-      }, {
+      },/* {
         name: 'zetflix',
         title: 'Zetflix',
         source: new zetflix(this, object),
@@ -11911,7 +11911,7 @@
         kp: true,
         imdb: false,
        // disabled: disable_dbg
-      },/* {
+      }, {
         name: 'fancdn',
         title: 'FanCDN',
         source: new fancdn(this, object),
@@ -11935,14 +11935,14 @@
         kp: true,
         imdb: false,
         disabled: disable_dbg && !isAndroid
-      }, {
+      },/* {
         name: 'videoseed',
         title: 'VideoSeed',
         source: new videoseed(this, object),
         search: false,
         kp: true,
         imdb: true
-      }, {
+      },*/ {
         name: 'vibix',
         title: 'Vibix',
         source: new vibix(this, object),
@@ -11963,7 +11963,7 @@
         search: false,
         kp: true,
         imdb: false
-      },/* {
+      }/*, {
         name: 'anilibria',
         title: 'AniLibria',
         source: new anilibria(this, object),
@@ -11992,7 +11992,7 @@
         search: true,
         kp: true,
         imdb: true
-      },*/ {
+      }, {
         name: 'alloha',
         title: 'Alloha',
         source: new alloha(this, object),
@@ -12000,7 +12000,7 @@
         kp: true,
         imdb: true,
         //disabled: disable_dbg
-      }/*, {
+      }, {
         name: 'kinopub',
         title: 'KinoPub',
         source: new kinopub(this, object),
