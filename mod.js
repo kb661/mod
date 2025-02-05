@@ -11842,37 +11842,37 @@
         kp: false,
         imdb: true,
         disabled: disable_dbg && !androidHeaders
-      }, {
+      },/* {
         name: 'lumex2',
         title: 'Lumex (Ads)',
         source: new lumex2(this, object),
         search: false,
         kp: false,
         imdb: true
-      }, {
+      },*/ {
         name: 'rezka',
         title: 'Voidboost',
         source: new rezka(this, object),
         search: false,
         kp: true,
         imdb: true,
-        disabled: true
-      }, {
+       // disabled: true
+      },/* {
         name: 'rezka2',
         title: 'HDrezka',
         source: new rezka2(this, object),
         search: true,
         kp: false,
         imdb: false
-      }, {
+      },*/ {
         name: 'kinobase',
         title: 'Kinobase',
         source: new kinobase(this, object),
         search: true,
         kp: false,
-        imdb: false,
-        disabled: disable_dbg
-      }, {
+        imdb: true,  //было false
+       // disabled: disable_dbg
+      },/* {
         name: 'collaps',
         title: 'Collaps',
         source: new collaps(this, object, false),
@@ -11880,7 +11880,7 @@
         kp: true,
         imdb: true,
         disabled: collapsBlocked
-      }, {
+      },*/ {
         name: 'collaps-dash',
         title: 'Collaps (DASH)',
         source: new collaps(this, object, true),
@@ -11910,8 +11910,8 @@
         search: false,
         kp: true,
         imdb: false,
-        disabled: disable_dbg
-      }, {
+       // disabled: disable_dbg
+      },/* {
         name: 'fancdn',
         title: 'FanCDN',
         source: new fancdn(this, object),
@@ -11919,7 +11919,7 @@
         kp: false,
         imdb: false,
         disabled: disable_dbg && !isAndroid
-      }, {
+      },*/ {
         name: 'fancdn2',
         title: 'FanCDN (ID)',
         source: new fancdn2(this, object),
@@ -11963,7 +11963,7 @@
         search: false,
         kp: true,
         imdb: false
-      }, {
+      },/* {
         name: 'anilibria',
         title: 'AniLibria',
         source: new anilibria(this, object),
@@ -11992,15 +11992,15 @@
         search: true,
         kp: true,
         imdb: true
-      }, {
+      },*/ {
         name: 'alloha',
         title: 'Alloha',
         source: new alloha(this, object),
         search: false,
         kp: true,
         imdb: true,
-        disabled: disable_dbg
-      }, {
+        //disabled: disable_dbg
+      }/*, {
         name: 'kinopub',
         title: 'KinoPub',
         source: new kinopub(this, object),
@@ -12008,7 +12008,7 @@
         kp: false,
         imdb: true,
         disabled: true
-      }];
+      }*/];
       var obj_filter_sources = all_sources.filter(function (s) {
         return !s.disabled;
       });
