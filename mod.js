@@ -11137,7 +11137,7 @@
         search: false,
         kp: true,
         imdb: false,
-        disabled: disable_dbg
+       // disabled: disable_dbg
       },/* {
         name: 'fancdn',
         title: 'FanCDN',
