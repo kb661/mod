@@ -11304,7 +11304,7 @@
         source: new lumex(this, object),
         search: false,
         kp: false,
-        imdb: true
+        imdb: true,
         disabled: disable_dbg && !androidHeaders
       }, {
         name: 'lumex2',
