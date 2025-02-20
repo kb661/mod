@@ -11304,8 +11304,8 @@
         source: new lumex(this, object),
         search: false,
         kp: false,
-        imdb: true,
-        disabled: disable_dbg
+        imdb: true
+       // disabled: disable_dbg
       },/* {
         name: 'lumex2',
         title: 'Lumex (Ads)',
