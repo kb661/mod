@@ -11351,7 +11351,7 @@
         search: false,
         kp: true,
         imdb: true,
-        disabled: disable_dbg
+        disabled: disable_dbg && !isAndroid
       }, {
         name: 'filmix',
         title: 'Filmix',
@@ -11366,7 +11366,7 @@
         search: false,
         kp: true,
         imdb: false,
-        disabled: disable_dbg
+        disabled: disable_dbg && !isAndroid
       }, {
         name: 'fancdn',
         title: 'FanCDN',
@@ -11382,7 +11382,7 @@
         search: false,
         kp: true,
         imdb: true,
-        disabled: disable_dbg
+        disabled: disable_dbg && !isAndroid
       }, {
         name: 'fanserials',
         title: 'FanSerials',
@@ -11462,7 +11462,7 @@
         search: false,
         kp: true,
         imdb: true,
-        disabled: disable_dbg
+        disabled: disable_dbg && !isAndroid
       }, {
         name: 'kinopub',
         title: 'KinoPub',
@@ -11470,7 +11470,7 @@
         search: true,
         kp: false,
         imdb: true,
-        disabled: true
+        disabled: false
       }];
       var obj_filter_sources = all_sources.filter(function (s) {
         return !s.disabled;
