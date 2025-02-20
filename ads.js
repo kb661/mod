@@ -1,5 +1,4 @@
 (function () {
-     'use strict';
     console.log("Блокировка рекламы активирована");
 
     // Подменяем проверку подписки (премиум аккаунт)
@@ -20,7 +19,7 @@
                     setTimeout(() => {
                         fakeVideo.ended = true;
                         fakeVideo.dispatchEvent(new Event("ended")); // Эмулируем завершение рекламы
-                    }, 500);
+                    }, 50);
                 };
 
                 return fakeVideo;
