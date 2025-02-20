@@ -11306,14 +11306,14 @@
         kp: false,
         imdb: true
        // disabled: disable_dbg
-      },/* {
+      }, {
         name: 'lumex2',
         title: 'Lumex (Ads)',
         source: new lumex2(this, object),
         search: false,
         kp: false,
         imdb: true
-      },*/ {
+      }, {
         name: 'rezka2',
         title: 'HDrezka',
         source: new rezka2(this, object),
