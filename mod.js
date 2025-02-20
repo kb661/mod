@@ -11305,7 +11305,7 @@
         search: false,
         kp: false,
         imdb: true
-       // disabled: disable_dbg
+        disabled: disable_dbg && !androidHeaders
       }, {
         name: 'lumex2',
         title: 'Lumex (Ads)',
