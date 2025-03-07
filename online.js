@@ -3,8 +3,8 @@
 
   var Defined = {
     api: 'lampac',
-    localhost: 'https://bwa.to/rc',
-    apn: 'http://apn.cfhttp.top/'
+    localhost: 'https://kb661.github.io/mod/',
+    apn: ''
   };
 
   var unic_id = Lampa.Storage.get('lampac_unic_id', '');
@@ -14,9 +14,9 @@
   }
   
   if (!window.rch) {
-    Lampa.Utils.putScript(["{localhost}/invc-rch.js"], function() {}, false, function() {
+    Lampa.Utils.putScript(["https://kb661.github.io/mod/invc-rch.js"], function() {}, false, function() {
       if (!window.rch.startTypeInvoke)
-        window.rch.typeInvoke('{localhost}', function() {});
+        window.rch.typeInvoke('https://kb661.github.io/mod/', function() {});
     }, true);
   }
 
@@ -97,8 +97,8 @@
         if (uid) url = Lampa.Utils.addUrlComponent(url, 'uid=' + encodeURIComponent(uid));
       }
       if (url.indexOf('token=') == -1) {
-        var token = '{token}';
-        if (token != '') url = Lampa.Utils.addUrlComponent(url, 'token={token}');
+        var token = '';
+        if (token != '') url = Lampa.Utils.addUrlComponent(url, 'token=');
       }
       return url;
     }
@@ -239,7 +239,7 @@
 		}
       };
       if (typeof signalR == 'undefined') {
-        Lampa.Utils.putScript(["{localhost}/signalr-6.0.25_es5.js"], function() {}, false, function() {
+        Lampa.Utils.putScript(["https://kb661.github.io/mod/signalr-6.0.25_es5.js"], function() {}, false, function() {
           load();
         }, true);
       } else load();
@@ -1411,7 +1411,7 @@
       onContextMenu: function onContextMenu(object) {
         return {
           name: Lampa.Lang.translate('lampac_watch'),
-          description: ''
+          description: 'Плагин для просмотра онлайн сериалов и фильмов'
         };
       },
       onContextLauch: function onContextLauch(object) {
