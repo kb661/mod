@@ -16,7 +16,7 @@
   if (!window.rch) {
     Lampa.Utils.putScript(["https://kb661.github.io/mod/invc-rch.js"], function() {}, false, function() {
       if (!window.rch.startTypeInvoke)
-        window.rch.typeInvoke('https://rc.bwa.to', function() {});
+        window.rch.typeInvoke('https://kb661.github.io', function() {});
     }, true);
   }
 
