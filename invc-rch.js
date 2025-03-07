@@ -20,7 +20,7 @@
         if (Lampa.Platform.is('android') || Lampa.Platform.is('tizen')) check(true);
         else {
           var net = new Lampa.Reguest();
-          net.silent('{localhost}'.indexOf(location.host) >= 0 ? 'https://github.com/' : host+'/cors/check', function() {
+          net.silent('https://rc.bwa.to'.indexOf(location.host) >= 0 ? 'https://github.com/' : host+'/cors/check', function() {
             check(true);
           }, function() {
             check(false);
@@ -33,7 +33,7 @@
 
 
     window.rch.Registry = function RchRegistry(toresult, hubConnection, startConnection) {
-      window.rch.typeInvoke('{localhost}', function() {
+      window.rch.typeInvoke('https://rc.bwa.to', function() {
         hubConnection.invoke("RchRegistry", JSON.stringify({
           version: 141,
           host: location.host,
