@@ -14,9 +14,9 @@
   }
   
   if (!window.rch) {
-    Lampa.Utils.putScript(["https://kb661.github.io/mod/invc-rch.js"], function() {}, false, function() {
+    Lampa.Utils.putScript(["https://rc.bwa.to/invc-rch.js"], function() {}, false, function() {
       if (!window.rch.startTypeInvoke)
-        window.rch.typeInvoke('https://kb661.github.io/mod/', function() {});
+        window.rch.typeInvoke('https://rc.bwa.to', function() {});
     }, true);
   }
 
