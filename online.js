@@ -3,7 +3,7 @@
 
   var Defined = {
     api: 'lampac',
-    localhost: '{localhost}/',
+    localhost: 'https://bwa.to/rc',
     apn: 'http://apn.cfhttp.top/'
   };
 
