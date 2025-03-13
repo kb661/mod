@@ -1473,9 +1473,9 @@
         zh: '按住“确定”键调出上下文菜单'
       },
       title_online: { //
-        ru: 'Онлайн',
-        uk: 'Онлайн',
-        en: 'Online',
+        ru: 'Лампак',
+        uk: 'Лампак',
+        en: 'Lampac',
         zh: '在线的'
       },
       lampac_voice_subscribe: { //
@@ -1574,13 +1574,21 @@
       e.render.after(btn);
     }
     Lampa.Listener.follow('full', function(e) {
-      if (e.type == 'complite') {
-        addButton({
-          render: e.object.activity.render().find('.view--torrent'),
-          movie: e.data.movie
+            if (e.type == 'complite') {
+                if (Lampa.Storage.get('card_interfice_type') === 'new') {
+                addButton({
+                    render: e.object.activity.render().find('.button--play'),
+                    movie: e.data.movie
+                });
+               }
+               else {
+                addButton({
+                    render: e.object.activity.render().find('.view--torrent'),
+                    movie: e.data.movie
+                });
+               }
+            }
         });
-      }
-    });
     try {
       if (Lampa.Activity.active().component == 'full') {
         addButton({
