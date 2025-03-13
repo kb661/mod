@@ -1404,8 +1404,8 @@
     window.lampac_plugin = true;
     var manifst = {
       type: 'video',
-      version: '1.4.4',
-      name: 'Lampac',
+      version: '1.4.5',
+      name: 'Lampa',
       description: 'Плагин для просмотра онлайн сериалов и фильмов',
       component: 'lampac',
       onContextMenu: function onContextMenu(object) {
